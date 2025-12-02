@@ -7,33 +7,37 @@ Supports **1D chains**, **graphene-like ribbons**, and **CNT heterojunctions**, 
 
 ## Motivation & Purpose
 
-Nano‑electronic devices—graphene nanoribbons, CNT diodes, heterostructures—are fundamentally governed by **quantum‑coherent transport**.  
+Nano‑electronic devices—graphene nanoribbons, CNT diodes, and engineered heterostructures—are fundamentally governed by **quantum‑coherent transport**.  
 Existing NEGF implementations are often:
 
-- too heavy or tied to DFT,
-- too opaque to modify,
-- too complex for rapid prototyping.
+- computationally heavy or tied to DFT packages,  
+- opaque black‑boxes that are difficult to modify,  
+- or too complex for rapid prototyping and conceptual studies.
 
-**This project fills that gap** by providing a clean, minimal NEGF pipeline where every step is transparent:
+This project addresses these limitations by providing a minimal, fully transparent NEGF framework where every step is accessible:
 
-- Hamiltonian → surface GF → self‑energies → Green’s functions → transmission → I–V.
+- Hamiltonian construction  
+- Surface Green’s functions  
+- Contact self‑energies  
+- Retarded/advanced Green’s functions  
+- Transmission spectra and I–V characteristics  
 
-This makes it ideal for research, teaching, and hypothesis testing.
+This structure makes the toolkit ideal for reproducible research, teaching, and device‑concept exploration.
 
 ---
 
 ## Key Features
 
-- Analytic **surface Green’s function** for semi‑infinite tight‑binding leads  
-- **Heterojunction construction**: metal/semiconductor segments  
-- **Landauer–Büttiker transport**:  
+- **Analytic surface Green’s functions** for semi‑infinite tight‑binding leads  
+- **Custom heterojunction construction** (metal/semiconductor segments)  
+- **Landauer–Büttiker transport calculations**, including:  
   - Transmission **T(E)**  
-  - I–V curves (Schottky-like rectification)  
-- **Parameter sweeps** for device‑level design rules  
-- Tools for:  
+  - I–V characteristics under asymmetric contact potentials  
+- **Parameter sweeps** for device-level insight  
+- Tools for exploring:  
   - Fabry–Pérot interference  
-  - Kronig–Penney potentials  
-  - Geometry‑dependent conduction  
+  - Kronig–Penney periodic potentials  
+  - Geometry‑dependent conduction mechanisms  
 
 ---
 
@@ -138,9 +142,9 @@ pip install -e .
 python examples/cnt_diode.py
 ```
 
-Outputs include:
+This script produces:
 
-- `TE_spectrum.png`, `TE_spectrum.csv`
+- `TE_spectrum.png`, `TE_spectrum.csv`  
 - `IV_curve.png`, `IV_curve.csv`
 
 ---
@@ -173,49 +177,39 @@ T = transmission(E, Hc, SigmaL, SigmaR)
 
 ## Example Results
 
-### Transmission spectrum of CNT-like heterojunction
-Shows band-edge opening and transmission suppression due to built‑in asymmetry.
-
-
+### Transmission spectrum of CNT-like heterojunction  
 ![Transmission](negf-simulator-github/negf-simulator/figures/TE_spectrum.png)
 
-
 ---
 
-### I–V characteristics: baseline vs dephasing
-Demonstrates rectification and resonance suppression.
-
+### I–V characteristics: baseline vs dephasing  
 ![IV Curve](negf-simulator-github/negf-simulator/figures/IV_curve.png)
 
-
 ---
 
-### Dephasing comparison (η = 0 vs η = 0.008)
-Dephasing smooths nonlinearities and shifts current onset.
-
+### Dephasing comparison (η = 0 vs η = 0.008)  
 ![IV Compare](negf-simulator-github/negf-simulator/figures/IV_compare_eta_0.008_right.png)
-
 
 ---
 
 ## Research Value
 
-This toolkit was originally developed for studying:
+This toolkit was originally developed to explore transport phenomena such as:
 
-- CNT heterojunction rectification  
-- resonance phenomena  
-- transport asymmetry  
-- dephasing effects  
+- rectification mechanisms in CNT heterojunctions  
+- resonance behavior and Fabry–Pérot–like oscillations  
+- asymmetry induced by contact or potential profiles  
+- dephasing-driven broadening and suppression of transmission
 
-It is now cleaned and structured for:
+It has since been reorganized into a clean and modular structure designed for:
 
-- graduate-level research  
-- reproducible device simulations  
-- quantum transport education  
-- hypothesis testing and model development  
+- transparent and reproducible transport simulations  
+- rapid prototyping of quantum device concepts  
+- educational demonstrations of NEGF methodology  
+- exploratory modeling and hypothesis testing in nanoscale electronics  
 
 ---
 
 ## License
 
-MIT License.
+This project is released under the **MIT License**, a permissive open-source license that permits reuse, modification, and distribution with attribution.
