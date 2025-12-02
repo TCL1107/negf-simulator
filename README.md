@@ -192,7 +192,7 @@ Demonstrates rectification and resonance suppression.
 ### Dephasing comparison (η = 0 vs η = 0.008)
 Dephasing smooths nonlinearities and shifts current onset.
 
-![IV Compare](figures/IV_compare_eta_0.008_right.png)
+![IV Compare]negf-simulator-github/negf-simulator/figures/IV_compare_eta_0.008_right.png
 
 
 ---
