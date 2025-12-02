@@ -1,71 +1,77 @@
 # NEGF Quantum Transport Simulator
 
-This repository provides a transparent, research-oriented Python toolkit for simulating quantum electron transport using the Non-Equilibrium Green’s Function (NEGF) formalism.  
-It supports studies on **1D tight-binding chains, graphene-like ribbons, and CNT-like heterojunctions**, focusing on physical interpretability and device-level insight.
-
-## Motivation & Purpose
-
-Modern nanoelectronic devices—graphene nanoribbons, CNT diodes, and engineered heterostructures—
-are all governed by quantum-coherent electron transport.  
-Yet most NEGF tools are:
-
-- too complex for quick prototyping,
-- too opaque to modify,
-- or too heavy for conceptual studies.
-
-**This project aims to bridge that gap** by providing a clean, minimal, and fully transparent NEGF pipeline.  
-Every step—from Hamiltonian construction, surface Green’s function, self-energies, and transmission—is visible and editable, so users can directly connect *mathematical expressions → numerical behavior*.
+*Python‑based quantum transport toolkit using the Non-Equilibrium Green’s Function (NEGF) formalism.*  
+Supports 1D chains, graphene‑like ribbons, and CNT‑heterojunction diodes, enabling transparent, customizable, research‑ready transport simulations.
 
 ---
 
-## Key Features
+## Motivation & Purpose  
 
-- **Analytic surface Green’s function** for semi-infinite 1D leads  
-- **Custom heterojunction construction** (metal/semiconductor segments, potential steps)
-- **Landauer–Büttiker transport calculation**:
-  - Transmission spectrum **T(E)**
-  - Current–voltage (I–V) curves with asymmetric contacts
-- **Parameter sweeps & variance decomposition** for device design rules
-- **Exploration tools** for:
-  - Fabry–Pérot interference  
-  - Kronig–Penney–like structures  
-  - Geometry-dependent conduction in ribbon-like systems
+Nano‑electronic devices — graphene ribbons, carbon nanotubes (CNTs), and engineered heterostructures — rely critically on quantum‑coherent electron transport.  
+However, existing NEGF tools are often:
+
+- computationally heavy or tightly coupled to DFT packages,  
+- opaque black‑boxes that are hard to modify,  
+- or too complex for rapid prototyping and conceptual studies.
+
+**This project fills that gap** by providing a clean, minimal, and fully transparent NEGF pipeline.  
+Every step — from Hamiltonian construction, surface Green’s function, contact self‑energy, to transmission — is visible and editable, making it easy to connect *mathematical expressions → numerical behavior → device‑level intuition*.
+
+Use this toolkit to:
+
+- prototype device concepts quickly,  
+- test physics hypotheses,  
+- generate transport datasets,  
+- and build intuition before heavier simulations.
 
 ---
 
-## Repository Structure
+## Key Features  
+
+- **Analytic surface Green’s function** for semi‑infinite 1D tight‑binding leads  
+- **Custom heterojunction construction** (metal/semiconductor segments, tunable onsite energies, tunable hoppings)  
+- **Landauer–Büttiker transport calculations**  
+  - Transmission spectrum **T(E)**  
+  - Current–voltage (I–V) curves with asymmetric Fermi levels  
+- **Parameter sweeps & variance analysis** for extracting device design rules  
+- **Exploration tools** for:  
+  - Fabry–Pérot oscillations  
+  - Kronig–Penney periodic potentials  
+  - Geometry‑dependent conduction in ribbon‑like systems  
+
+---
+
+## Repository Structure  
 
 ```
-src/negf/         # Core NEGF modules (GF, self-energy, device assembly)
-examples/         # Toy chains, CNT diodes, GNR transport, Fabry–Pérot
-figures/          # Generated plots (T(E), IV curves, sweep maps)
-data/             # CSV/numpy outputs
-notebooks/        # (optional) workflow demos
+src/negf/         # Core NEGF modules (Green’s function, self‑energy, device builder)
+examples/         # Toy chains, CNT diode, GNR transport, Fabry–Pérot scripts
+figures/          # Generated plots (T(E), I–V curves, sweep maps)
+data/             # Exported CSV/numpy datasets
+notebooks/        # (Optional) workflow demos and tutorials
 ```
 
 ---
 
-## Getting Started
+## Getting Started  
 
-### Install dependencies
+### 1. Install dependencies  
 
 ```bash
 pip install -r requirements.txt
 pip install -e .
 ```
 
-### Run a CNT-like diode example
+### 2. Run a demonstration example  
 
 ```bash
 python examples/cnt_diode.py
 ```
 
-This produces:
+This script computes quantum transport through a CNT‑like heterojunction and outputs:
 
-- `TE_spectrum.png`, `TE_spectrum.csv`
-- `IV_curve.png`, `IV_curve.csv`
-
-in the working directory.
+- `TE_spectrum.png`, `TE_spectrum.csv`  
+- `IV_curve.png`, `IV_curve.csv`  
 
 ---
 
@@ -76,7 +82,7 @@ from negf.negf import transmission
 from negf.surface_gf import surface_gf_1d
 import numpy as np
 
-# Simple 1D chain
+# Simple 1‑D chain model
 N = 5
 t = -3.0
 eps0 = 0.0
@@ -94,23 +100,32 @@ SigmaR = surface_gf_1d(E, eps0, t)
 T = transmission(E, Hc, SigmaL, SigmaR)
 ```
 
----
-
-## What You Can Learn
-
-With small code modifications, users can explore:
-
-- band-edge shifts from onsite potentials  
-- Fabry–Pérot oscillations from multi-cell interference  
-- effect of coupling strength on absolute current  
-- rectification mechanisms in heterojunction structures  
-- dephasing-induced broadening of resonances  
-
-These tools provide intuition essential for nanoelectronics research.
+This demonstrates the complete workflow:  
+**Hamiltonian → Contact self‑energies → Retarded Green’s function → Transmission.**
 
 ---
 
-## Background
+## What You Can Learn / Explore  
 
-This toolkit originated from an undergraduate research project on quantum transport and rectification in CNT-like systems.  
-It has since been reorganized into a reusable, transparent, and research-ready form for future device studies.
+This simulator allows rapid exploration of:
+
+- Band‑edge behavior from onsite shifts  
+- Fabry–Pérot resonance structures in multi‑cell devices  
+- Contact‑coupling effects on absolute current scale  
+- Schottky‑like rectification in heterojunction devices  
+- Dephasing‑induced resonance broadening  
+
+These insights are essential for understanding nanoscale quantum transport.
+
+---
+
+## Background & Research Context  
+
+This toolkit originated from an undergraduate research project on quantum transport and rectification in CNT‑like systems.  
+It has been reorganized into a clean and reusable form to support future device studies, reproducible simulations, and educational demonstrations.
+
+---
+
+## License  
+
+Released under the **MIT License**. Contributions and feature requests are welcome.
