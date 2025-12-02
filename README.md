@@ -176,7 +176,8 @@ T = transmission(E, Hc, SigmaL, SigmaR)
 ### Transmission spectrum of CNT-like heterojunction
 Shows band-edge opening and transmission suppression due to built‑in asymmetry.
 
-![Transmission](figures/TE_spectrum.png)
+
+![Transmission](negf-simulator-github/negf-simulator/figures/TE_spectrum.png)
 
 
 ---
@@ -184,7 +185,7 @@ Shows band-edge opening and transmission suppression due to built‑in asymmetry
 ### I–V characteristics: baseline vs dephasing
 Demonstrates rectification and resonance suppression.
 
-![IV Curve](figures/IV_curve.png)
+![IV Curve](negf-simulator-github/negf-simulator/figures/IV_curve.png)
 
 
 ---
@@ -192,7 +193,7 @@ Demonstrates rectification and resonance suppression.
 ### Dephasing comparison (η = 0 vs η = 0.008)
 Dephasing smooths nonlinearities and shifts current onset.
 
-![IV Compare]negf-simulator-github/negf-simulator/figures/IV_compare_eta_0.008_right.png
+![IV Compare](negf-simulator-github/negf-simulator/figures/IV_compare_eta_0.008_right.png)
 
 
 ---
