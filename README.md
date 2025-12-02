@@ -176,21 +176,24 @@ T = transmission(E, Hc, SigmaL, SigmaR)
 ### Transmission spectrum of CNT-like heterojunction
 Shows band-edge opening and transmission suppression due to built‑in asymmetry.
 
-![Transmission](TE_spectrum.png)
+![Transmission](figures/TE_spectrum.png)
+
 
 ---
 
 ### I–V characteristics: baseline vs dephasing
 Demonstrates rectification and resonance suppression.
 
-![IV Curve](IV_curve.png)
+![IV Curve](figures/IV_curve.png)
+
 
 ---
 
 ### Dephasing comparison (η = 0 vs η = 0.008)
 Dephasing smooths nonlinearities and shifts current onset.
 
-![IV Compare](IV_compare_eta_0.008_right.png)
+![IV Compare](figures/IV_compare_eta_0.008_right.png)
+
 
 ---
 
