@@ -1,0 +1,9 @@
+feature,importance
+cat__barrier_material_Al2O3,0.007616465088311491
+cat__barrier_material_MgO,0.005705107350357074
+cat__interface_atom_order_Fe-Al-O,0.004933568048187652
+cat__interface_atom_order_Fe-Mg-O,0.005525319925660126
+cat__interface_atom_order_Fe-O-Al,0.003607739571011369
+cat__interface_atom_order_Fe-O-Mg,0.00491941592513862
+remainder__barrier_thickness_nm,0.724259983098513
+remainder__Ef_T(E),0.24343240099282054
