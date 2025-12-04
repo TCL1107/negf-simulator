@@ -11,12 +11,9 @@
 
 ## 🚀 Overview
 
-**NEGF-Simulator** is a clean, research-oriented Python toolkit connecting:
-
-- **materials-level physics** (CNT bandstructure, zone-folding)  
-- **effective tight-binding modeling** (Δ = Eg/2 chain model)  
-- **quantum transport** (NEGF Green’s functions)  
-- **device-level signatures** (gap, rectification, resonance)
+**NEGF-Simulator** is a research-oriented Python toolkit that connects  
+materials-level electronic structure, effective tight-binding models,  
+and quantum-transport device simulations based on the NEGF formalism.
 
 The core methodology:
 
@@ -28,7 +25,8 @@ CNT (n,m) → Eg(n,m)
       → T(E) → device behavior
 ```
 
-This end-to-end flow mirrors how ECE device-modeling groups perform physics-based simulation.
+This mirrors how ECE device-modeling groups build physics-consistent  
+device simulations.
 
 ---
 
@@ -63,10 +61,10 @@ Scripts:
 - `examples/cnt_zonefold_bandstructure.py`  
 - `examples/cnt_zonefold_fullTB.py`
 
-Outputs include:
+Zone folding computes:
 - CNT diameter  
 - bandgap Eg(n,m)  
-- subbands  
+- low-energy subbands  
 - metallic/semiconducting classification  
 
 Example:
@@ -77,7 +75,7 @@ CNT (17,0)
   Eg ≈ 0.619 eV
 ```
 
-*(see CNT_bandstructure.png for reference)*
+(see `CNT_bandstructure.png`)
 
 ---
 
@@ -85,13 +83,16 @@ CNT (17,0)
 
 Using CNT’s zone-folding gap:
 
-Eg_CNT → Δ = Eg/2
+**Eg_CNT → Δ = Eg/2**
 
 Construct a 1D dimerized chain:
 
-H_ii = ±Δ,  H_{i,i+1} = t
+```
+H_ii = ±Δ  
+H_{i,i+1} = t
+```
 
-This preserves the CNT’s band-edge physics while greatly simplifying computation.
+This preserves CNT’s band-edge physics while enabling fast simulation.
 
 ---
 
@@ -100,15 +101,15 @@ This preserves the CNT’s band-edge physics while greatly simplifying computati
 Module:
 - `src/negf/negf.py`
 
-Features:
+Capabilities:
 - retarded Green’s function  
-- analytic 1D surface self-energies  
-- T(E)  
+- analytic self-energies for 1D leads  
+- transmission T(E)  
 - gap extraction  
 - interface effects  
 - resonance transport  
 
-Your true T(E) figure is embedded in the composite banner above.
+Your real NEGF T(E) result is shown in the composite banner.
 
 ---
 
@@ -124,8 +125,43 @@ Includes:
 - dephasing α study  
 - parameter sweeps  
 
-These show how electronic structure translates to device-level ON/OFF behavior,  
-turn-on voltage, and rectification ratio.
+These examples illustrate how electronic structure shapes device-level  
+ON/OFF behavior, turn-on voltage, and rectification.
+
+---
+
+# 📡 Prior Research Projects  
+*(Rectification, Heterojunctions, Dephasing)*
+
+Before building the current materials-calibrated CNT → Δ → NEGF pipeline,  
+this repository originated from earlier studies of **CNT-like heterostructures,  
+rectification mechanisms, resonance transport, and coherence loss**.
+
+These projects remain available in `examples/` and `figures/` and include:
+
+### **1. CNT-like Heterojunction Rectifiers**
+- asymmetric hopping and coupling  
+- diode-like behavior with **~0.38 V turn-on**  
+- stable rectification up to ±1.5 V  
+- interface-driven band alignment  
+- geometry-dependent transmission suppression  
+
+### **2. Fabry–Pérot & Resonance Transport**
+- interference-driven oscillatory T(E)  
+- cavity-length scaling  
+- quasi-bound states in CNT/GNR-like chains  
+
+### **3. Dephasing & Energy Dissipation**
+- phenomenological dephasing parameter η  
+- comparison between η = 0 and η = 0.008  
+- broadening, coherence loss, peak suppression  
+- connection to mean free path (mfp) and phonon scattering  
+
+Representative figures include:  
+`TE_spectrum.png`, `IV_curve.png`, `IV_compare_eta_0.008_right.png`
+
+These physical insights motivated the transition toward a **materials-grounded  
+and analytically calibrated pipeline**, culminating in the CNT → Δ → NEGF framework.
 
 ---
 
@@ -144,9 +180,15 @@ negf-simulator/
 │     ├── cnt_zonefold_bandstructure.py
 │     ├── cnt_zonefold_fullTB.py
 │     ├── cnt_gap_to_chain.py
+│     ├── make_cnt_pipeline_figure.py
 │     ├── uniform_chain.py
-│     └── rectifier_demo.py
+│     ├── rectifier_demo.py
+│     └── ...
 │
+├── CNT_bandstructure.png
+├── CNT_gap_mapping.png
+├── CNT_TE_true.png
+├── CNT_pipeline_composite.png
 └── README.md
 ```
 
@@ -154,15 +196,16 @@ negf-simulator/
 
 ## 🧠 Why This Toolkit Matters for ECE Device Modeling
 
-This project demonstrates essential research skills:
+This project demonstrates essential research capabilities:
 
-✔ Physics-based modeling  
-✔ Effective Hamiltonian construction  
+✔ Physics-based modeling (CNT bandstructure, quantum transport)  
+✔ Effective Hamiltonian construction (Δ = Eg/2 mapping)  
 ✔ NEGF implementation from scratch  
 ✔ Model validation (Eg_CNT ≈ Eg_chain)  
-✔ Modular, reproducible architecture  
+✔ Modular, research-ready architecture  
+✔ Prior experience with rectifiers, heterojunctions, dephasing  
 
-These abilities are exactly what ECE device-physics advisors expect.
+These skills align directly with nanoelectronics and device-physics research.
 
 ---
 
@@ -170,9 +213,9 @@ These abilities are exactly what ECE device-physics advisors expect.
 
 - Poisson-NEGF self-consistent I–V  
 - Electron–phonon scattering  
-- Multi-orbital CNT TB model  
+- Multi-orbital CNT TB  
 - Graphene nanoribbon transport  
-- Metal/CNT Schottky barrier extraction  
+- Metal/CNT Schottky barriers  
 - ML-based parameter tuning  
 - Pareto optimization (RR, V_on, energy cost)
 
