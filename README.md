@@ -6,6 +6,9 @@
 # 🌄 Pipeline Overview (Materials → Hamiltonian → NEGF → Device)
 
 <img src="CNT_pipeline_composite.png" width="100%">
+## High-Level Flow
+
+![Model flowchart](CNT_flowchart.png)
 
 ---
 
