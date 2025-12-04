@@ -128,7 +128,17 @@ Includes:
 These examples illustrate how electronic structure shapes device-level  
 ON/OFF behavior, turn-on voltage, and rectification.
 
+
 ---
+### 5️⃣ Example: Landauer I–V of a CNT-Calibrated Chain
+
+The script `examples/iv_cnt_chain_example.py` implements a simple
+Landauer I–V calculation for a 1D dimerized chain whose gap is
+calibrated to a CNT (Eg ≈ 0.62 eV → Δ ≈ Eg/2). It uses a wide-band
+limit for the contacts and Fermi functions at 300 K.
+
+![CNT-calibrated chain I–V](IV_cnt_chain_example.png)
+
 
 # 📡 Prior Research Projects  
 *(Rectification, Heterojunctions, Dephasing)*
